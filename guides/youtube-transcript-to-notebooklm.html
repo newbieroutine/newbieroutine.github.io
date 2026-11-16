@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Three ways to get a YouTube video's transcript into NotebookLM or ChatGPT: add the link, copy it from YouTube's transcript panel, or export clean text with a free Chrome extension.">
+<title>How to copy a YouTube transcript into NotebookLM or ChatGPT – Corn Tools</title>
+<link rel="canonical" href="https://newbieroutine.github.io/guides/youtube-transcript-to-notebooklm.html">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I copy a YouTube transcript into NotebookLM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Either add the video's link as a YouTube source in NotebookLM, or copy the transcript text (from YouTube's Show transcript panel or with a transcript extension) and add it to NotebookLM as a pasted text source."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I copy a YouTube transcript into ChatGPT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copy the transcript text, then paste it into a ChatGPT message together with your question. A transcript extension can copy the text without timestamps and sound tags so it is easier to read."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why copy the text instead of pasting the YouTube link?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Copying the text lets you choose the caption language, remove timestamps and [Music] tags, trim the parts you don't need, and use the same text in any tool, including ones that can't open YouTube links."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span>Corn</span> Tools</a>
+    <nav class="top" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Guides</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>How to copy a YouTube transcript into NotebookLM or ChatGPT</h1>
+<p class="meta">Last updated: November 16, 2026</p>
+
+<p class="lead">Short answer: in NotebookLM you can add the video link as a source. If you want clean text you can edit, choose the language of, or paste into ChatGPT, copy the transcript text instead and add it as a pasted text source.</p>
+
+<p>All three methods below only work for videos that have captions, either uploaded by the creator or generated automatically by YouTube.</p>
+
+<h2>Method 1: add the YouTube link in NotebookLM</h2>
+<ol>
+  <li>Copy the video's address from your browser.</li>
+  <li>In NotebookLM, open your notebook and add a new source.</li>
+  <li>Choose the YouTube option and paste the link.</li>
+</ol>
+<p>This is the quickest way when you only need NotebookLM. You don't see or control the text it imports, and it doesn't help with ChatGPT or other tools.</p>
+
+<h2>Method 2: copy from YouTube's transcript panel (no extension)</h2>
+<ol>
+  <li>Open the video and expand the description under it.</li>
+  <li>Click <strong>Show transcript</strong>. The transcript opens next to the video.</li>
+  <li>Select the text in the panel and copy it.</li>
+  <li>Paste it into ChatGPT, or add it to NotebookLM as a pasted text source.</li>
+</ol>
+<p>This works without installing anything. The copied text includes a timestamp on every line and keeps the short broken lines of auto-generated captions, so long videos are tedious to select and messy to read.</p>
+
+<h2>Method 3: export clean text with a Chrome extension</h2>
+<p>I make a free extension for this, <a href="https://chromewebstore.google.com/detail/mjhdknbgcillemmhmmjkanheiajodfmj?utm_source=corntools&amp;utm_medium=guide&amp;utm_campaign=notebooklm">YouTube Transcript &amp; Subtitle Exporter</a>. It adds a <strong>Transcript</strong> button next to the Subscribe button.</p>
+<ol>
+  <li>Open the video and click <strong>Transcript</strong>. The original language is selected, and you see a preview and a word count.</li>
+  <li>For NotebookLM: pick <strong>Copy</strong> and click the button under it, then add a new source in NotebookLM and paste the text. You can also save a TXT or Markdown file and upload that as a source.</li>
+  <li>For ChatGPT or Claude: click <strong>ChatGPT</strong> or <strong>Claude</strong> under "Ask an AI". It copies your prompt, the video title and link, and the text, and opens the site. Press Ctrl+V (Cmd+V on a Mac) and send.</li>
+</ol>
+<p>Under <strong>Options</strong> you can turn off timestamps, join caption lines into paragraphs, remove sound tags like [Music] and (Applause), and put the title and link at the top so you know later where the text came from.</p>
+
+<div class="note">
+  <p>The extension exports caption text only. It doesn't download video or audio, and it can't make a transcript for a video without captions. The text is processed in your browser and isn't sent to any server.</p>
+</div>
+
+<h2>Which one should you use?</h2>
+<ul>
+  <li><strong>One video, NotebookLM only:</strong> add the link (method 1).</li>
+  <li><strong>Once in a while, any tool:</strong> YouTube's transcript panel (method 2).</li>
+  <li><strong>Often, or you want readable text without timestamps:</strong> an extension (method 3).</li>
+</ul>
+
+<h2>FAQ</h2>
+<h3>Why copy the text instead of pasting the YouTube link?</h3>
+<p>Copying the text lets you choose the caption language, remove timestamps and [Music] tags, cut the parts you don't need, and use the same text in any tool, including ones that can't open YouTube links.</p>
+<h3>The transcript is in English but the video isn't. Why?</h3>
+<p>Some tools pick an auto-translated caption track. In YouTube's panel you can switch the language at the bottom of the transcript. The extension above selects the video's original language by default, also on videos with AI dubbing.</p>
+<h3>Can I get a transcript for a video that has no captions?</h3>
+<p>Not with these methods. You would need a speech-to-text tool that listens to the audio.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Guides</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../terms.html">Terms of Service</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <p>Corn Tools is run by an individual developer. Contact: <a href="mailto:603356553@qq.com">603356553@qq.com</a></p>
+    <p>YouTube is a trademark of Google LLC. NotebookLM and ChatGPT are trademarks of their respective owners. Corn Tools is not affiliated with Google or OpenAI.</p>
+  </div>
+</footer>
+</body>
+</html>
