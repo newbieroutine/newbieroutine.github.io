@@ -4,10 +4,27 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Corn Tools makes small browser tools. The first one exports YouTube transcripts and subtitles as text files.">
+<meta name="description" content="Corn Tools makes small browser tools. The first one exports YouTube transcripts and subtitles as TXT, SRT, VTT or Markdown, and transcribes videos without captions with AI (Pro).">
 <title>Corn Tools</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="canonical" href="https://newbieroutine.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "YouTube Transcript & Subtitle Exporter",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "url": "https://chromewebstore.google.com/detail/mjhdknbgcillemmhmmjkanheiajodfmj",
+  "description": "Chrome extension that exports YouTube transcripts and subtitles as TXT, SRT, VTT or Markdown (Obsidian, Notion), or copies them to ChatGPT, Claude or NotebookLM. Free for videos with captions; Pro adds AI transcription for videos without captions.",
+  "publisher": {"@type": "Organization", "name": "Corn Tools", "url": "https://newbieroutine.github.io/"},
+  "offers": [
+    {"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Pro (AI transcription)", "price": "4.99", "priceCurrency": "USD"}
+  ]
+}
+</script>
 </head>
 <body>
 <header class="site">
@@ -31,7 +48,7 @@
 <div class="product">
   <img src="favicon.png" alt="" width="64" height="64">
   <div>
-    <p>A Chrome extension that saves the transcript of a YouTube video as a text file, or copies it to your clipboard. Guide: <a href="guides/youtube-transcript-to-notebooklm.html">copy a YouTube transcript into NotebookLM or ChatGPT</a>.</p>
+    <p>A Chrome extension that saves the transcript of a YouTube video as a text file, or copies it to your clipboard. Guides: <a href="guides/youtube-transcript-to-notebooklm.html">copy a transcript into NotebookLM or ChatGPT</a>, <a href="guides/download-youtube-subtitles-srt.html">download subtitles as SRT</a>, <a href="guides/youtube-transcript-to-obsidian-markdown.html">save a transcript to Obsidian as Markdown</a>, <a href="guides/youtube-transcript-without-captions.html">get a transcript of a video without captions</a>.</p>
     <p><a class="button" href="https://chromewebstore.google.com/detail/mjhdknbgcillemmhmmjkanheiajodfmj">Get it on the Chrome Web Store</a></p>
   </div>
 </div>

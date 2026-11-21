@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Why some YouTube videos have no transcript, and the options to get one anyway: YouTube Studio for your own videos, local speech-to-text, or AI transcription in a Chrome extension.">
+<title>How to get a transcript of a YouTube video that has no captions – Corn Tools</title>
+<link rel="canonical" href="https://newbieroutine.github.io/guides/youtube-transcript-without-captions.html">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does a YouTube video have no transcript?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Show transcript and transcript tools only work when the video has captions. Some videos never get auto-generated captions, for example because of the language, music or poor audio, or because the creator turned them off."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make a transcript without downloading the video?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. AI transcription in a browser extension can listen to the video while it plays in your tab and turn the speech into text, without downloading the video file."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is AI transcription?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually good for clear speech, but it can mishear names, numbers and technical terms, and struggles with music or several people talking at once. Check the text before you rely on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a free option?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For your own videos, YouTube Studio's automatic captions are free. For other videos, local speech-to-text tools are free but need setup and an audio file; browser AI transcription is usually paid because the speech recognition runs on a server."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span>Corn</span> Tools</a>
+    <nav class="top" aria-label="Main">
+      <a href="../index.html">Home</a>
+      <a href="index.html">Guides</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>How to get a transcript of a YouTube video that has no captions</h1>
+<p class="meta">Last updated: November 21, 2026</p>
+<p class="lead">Short answer: if the video has no captions, there is no transcript to copy or export. You need speech-to-text: YouTube Studio's automatic captions for your own videos, a speech-to-text tool on your computer, or AI transcription in a browser extension.</p>
+
+<h2>First, check that it really has no captions</h2>
+<p>If the player shows a <strong>CC</strong> button, the video has captions and any transcript tool can export them. <strong>Show transcript</strong> in the description under the video is another sign. If neither is there, the video has no caption track.</p>
+
+<h2>Option 1: YouTube Studio (your own videos)</h2>
+<p>For videos on your channel, open YouTube Studio → <strong>Subtitles</strong>. YouTube can create automatic captions for supported languages, and you can edit them and download an SRT file.</p>
+
+<h2>Option 2: speech-to-text on your computer</h2>
+<p>Open-source speech recognition models such as Whisper can transcribe an audio file on your computer for free. This needs some technical setup and an audio file to work from, so it suits people who transcribe often and are comfortable with command-line tools.</p>
+
+<h2>Option 3: AI transcription in a Chrome extension</h2>
+<p>My extension, <a href="https://chromewebstore.google.com/detail/mjhdknbgcillemmhmmjkanheiajodfmj?utm_source=corntools&amp;utm_medium=guide&amp;utm_campaign=nocaptions">YouTube Transcript &amp; Subtitle Exporter</a>, exports captions for free. For videos without captions it offers <strong>Transcribe with AI (Pro)</strong>, a paid feature ($4.99 one-time, 300 minutes every 30 days, see <a href="../pricing.html">Pricing</a>).</p>
+<ol>
+  <li>Open the video and click the <strong>Transcript</strong> button. On a video without captions the popup says so and shows <strong>Transcribe with AI (Pro)</strong>.</li>
+  <li>Enter your license key and click <strong>Start</strong>. The video plays muted in its tab, at up to 2x speed, and short pieces of its sound are sent to the developer's server, where Cloudflare Workers AI turns them into text.</li>
+  <li>When it finishes, copy the text or save it as TXT, SRT, VTT or Markdown, like any other transcript.</li>
+</ol>
+<p>Nothing is downloaded from YouTube, and the server keeps neither the audio nor the text. Videos up to 120 minutes are supported; live streams and Shorts are not.</p>
+
+<h2>FAQ</h2>
+<h3>Why does a YouTube video have no transcript?</h3>
+<p>Show transcript and transcript tools only work when the video has captions. Some videos never get auto-generated captions, for example because of the language, music or poor audio, or because the creator turned them off.</p>
+<h3>Can I make a transcript without downloading the video?</h3>
+<p>Yes. AI transcription in a browser extension can listen to the video while it plays in your tab and turn the speech into text, without downloading the video file.</p>
+<h3>How accurate is AI transcription?</h3>
+<p>Usually good for clear speech, but it can mishear names, numbers and technical terms, and struggles with music or several people talking at once. Check the text before you rely on it.</p>
+<h3>Is there a free option?</h3>
+<p>For your own videos, YouTube Studio&#x27;s automatic captions are free. For other videos, local speech-to-text tools are free but need setup and an audio file; browser AI transcription is usually paid because the speech recognition runs on a server.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="index.html">Guides</a>
+      <a href="../pricing.html">Pricing</a>
+      <a href="../terms.html">Terms of Service</a>
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+    <p>Corn Tools is run by an individual developer. Contact: <a href="mailto:603356553@qq.com">603356553@qq.com</a></p>
+    <p>YouTube is a trademark of Google LLC. Other product names are trademarks of their respective owners. Corn Tools is not affiliated with Google, OpenAI or Obsidian.</p>
+  </div>
+</footer>
+</body>
+</html>
