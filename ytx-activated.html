@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Thanks for your purchase — Corn Tools</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+.keybox { display: flex; gap: 8px; align-items: stretch; margin: 0.5em 0 1em; }
+.keybox code { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card); font-size: 1.05rem; overflow-wrap: anywhere; user-select: all; }
+.keybox .button { border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+ol.steps li { margin-bottom: 0.4em; }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span>Corn</span> Tools</a>
+    <nav class="top" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<h1>Thanks for your purchase!</h1>
+<p class="meta">YouTube Transcript &amp; Subtitle Exporter — Pro (AI transcription)</p>
+
+<section id="hasKey" hidden>
+  <p>Your license key:</p>
+  <div id="keys"></div>
+  <h2>Activate in 3 steps</h2>
+  <ol class="steps">
+    <li>Go back to the YouTube video tab.</li>
+    <li>Click the extension icon, then <strong>Transcribe with AI (Pro)</strong>.</li>
+    <li>Paste the key under <strong>Already have a key?</strong> and click <strong>Activate</strong>.</li>
+  </ol>
+</section>
+
+<div class="note" id="noKey" hidden>
+  <p><strong>We couldn't show your license key on this page.</strong></p>
+  <p>Please check your email<span id="emailHint"></span> — the key is sent there right after payment. Also check your spam or promotions folder.</p>
+</div>
+
+<div class="note" id="notPaid" hidden>
+  <p><strong>The payment doesn't seem to have completed.</strong> If you were charged, check your email for the receipt and license key, or contact us below.</p>
+</div>
+
+<p id="emailNote" hidden>A copy of the key was also emailed to you<span id="emailTo"></span>. If you can't find it, check your spam or promotions folder.</p>
+<p>Need help? Email <a href="mailto:603356553@qq.com">603356553@qq.com</a> with your order ID<span id="payHint"></span>.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="pricing.html">Pricing</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://chromewebstore.google.com/detail/mjhdknbgcillemmhmmjkanheiajodfmj">Chrome Web Store</a>
+    </nav>
+    <p>Corn Tools is run by an individual developer. Contact: <a href="mailto:603356553@qq.com">603356553@qq.com</a></p>
+    <p>YouTube is a trademark of Google LLC. Corn Tools is not affiliated with, endorsed by, or sponsored by YouTube or Google.</p>
+  </div>
+</footer>
+<script>
+// Dodo Payments 付款成功后跳到这里，附带 ?payment_id=&status=&email=&license_key=（多个 key 逗号分隔）
+(function () {
+  var q = new URLSearchParams(location.search);
+  var keys = (q.get('license_key') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  var status = q.get('status');
+  var email = q.get('email');
+  var pay = q.get('payment_id');
+  // 读完立刻从地址栏去掉参数，避免 key 留在浏览记录里
+  if (location.search) history.replaceState(null, '', location.pathname);
+  var $ = function (id) { return document.getElementById(id); };
+  if (email) {
+    $('emailHint').textContent = ' (' + email + ')';
+    $('emailTo').textContent = ' at ' + email;
+  }
+  if (pay) $('payHint').textContent = ' (' + pay + ')';
+  if (status && status !== 'succeeded') { $('notPaid').hidden = false; return; }
+  if (!keys.length) { $('noKey').hidden = false; return; }
+  keys.forEach(function (k) {
+    var row = document.createElement('div');
+    row.className = 'keybox';
+    var code = document.createElement('code');
+    code.textContent = k;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'button';
+    btn.textContent = 'Copy';
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText(k).then(function () {
+        btn.textContent = 'Copied';
+        setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+      }, function () {
+        getSelection().selectAllChildren(code);
+        btn.textContent = 'Press Ctrl+C';
+      });
+    });
+    row.appendChild(code);
+    row.appendChild(btn);
+    $('keys').appendChild(row);
+  });
+  $('hasKey').hidden = false;
+  $('emailNote').hidden = false;
+})();
+</script>
+</body>
+</html>
