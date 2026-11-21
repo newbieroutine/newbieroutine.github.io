@@ -34,9 +34,10 @@ ol.steps li { margin-bottom: 0.4em; }
 <section id="hasKey" hidden>
   <p>Your license key:</p>
   <div id="keys"></div>
+  <p><strong>Copy and save this key now</strong> — it won't be shown again if you reload this page (it's also in your email).</p>
   <h2>Activate in 3 steps</h2>
   <ol class="steps">
-    <li>Go back to the YouTube video tab.</li>
+    <li>Go back to the YouTube video tab (the Pro button appears on videos that have no captions).</li>
     <li>Click the extension icon, then <strong>Transcribe with AI (Pro)</strong>.</li>
     <li>Paste the key under <strong>Already have a key?</strong> and click <strong>Activate</strong>.</li>
   </ol>
@@ -45,6 +46,10 @@ ol.steps li { margin-bottom: 0.4em; }
 <div class="note" id="noKey" hidden>
   <p><strong>We couldn't show your license key on this page.</strong></p>
   <p>Please check your email<span id="emailHint"></span> — the key is sent there right after payment. Also check your spam or promotions folder.</p>
+</div>
+
+<div class="note" id="processing" hidden>
+  <p><strong>Your payment is being processed.</strong> As soon as it completes, your license key will be emailed to you. Please check your inbox (and spam folder) in a few minutes.</p>
 </div>
 
 <div class="note" id="notPaid" hidden>
@@ -72,11 +77,13 @@ ol.steps li { margin-bottom: 0.4em; }
 // Dodo Payments 付款成功后跳到这里，附带 ?payment_id=&status=&email=&license_key=（多个 key 逗号分隔）
 (function () {
   var q = new URLSearchParams(location.search);
-  var keys = (q.get('license_key') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean);
-  var status = q.get('status');
-  var email = q.get('email');
-  var pay = q.get('payment_id');
-  // 读完立刻从地址栏去掉参数，避免 key 留在浏览记录里
+  // 只接受预期格式，避免有人构造链接在本站显示任意文字
+  var ok = function (v, re) { return v && re.test(v) ? v : null; };
+  var keys = (q.get('license_key') || '').split(',').map(function (s) { return s.trim(); }).filter(function (k) { return /^[A-Za-z0-9_-]{8,100}$/.test(k); }).slice(0, 5);
+  var status = ok(q.get('status'), /^[a-z_]{1,30}$/);
+  var email = ok(q.get('email'), /^[^\s@<>]{1,64}@[^\s@<>]{1,190}$/);
+  var pay = ok(q.get('payment_id'), /^pay_[A-Za-z0-9]{1,60}$/);
+  // 读完立刻从地址栏去掉参数（当前历史条目不再带 key；首次访问记录可能仍在浏览器历史里，邮件里本来也有 key）
   if (location.search) history.replaceState(null, '', location.pathname);
   var $ = function (id) { return document.getElementById(id); };
   if (email) {
@@ -84,6 +91,7 @@ ol.steps li { margin-bottom: 0.4em; }
     $('emailTo').textContent = ' at ' + email;
   }
   if (pay) $('payHint').textContent = ' (' + pay + ')';
+  if (status === 'processing') { $('processing').hidden = false; return; }
   if (status && status !== 'succeeded') { $('notPaid').hidden = false; return; }
   if (!keys.length) { $('noKey').hidden = false; return; }
   keys.forEach(function (k) {
